@@ -18,11 +18,12 @@ class AuthenticateAdminMiddleware
     {
         if(Auth::check()){
             foreach($roles as $role){
-                if(Auth::user()->checkRole($role)){
+                if(config('const.role')[Auth::user()->role_type] == $role){
                     return $next($request);
                 }
             }
         }
-        return redirect()->route("admin.login");
+        Auth::guard()->logout();
+        return redirect()->route("login.show");
     }
 }
