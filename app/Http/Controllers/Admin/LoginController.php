@@ -32,6 +32,6 @@ class LoginController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
  
-        return redirect('/admin');
+        return redirect()->route("login.show");
     }    
 }

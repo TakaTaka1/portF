@@ -13,10 +13,10 @@
 
 // adminview
 Route::group(['prefix' => 'admin'], function(){
-	Route::get('/', 'Admin\LoginController@showLoginForm');	
+	Route::get('/', 'Admin\LoginController@showLoginForm')->name('login.show');	
 	Route::post('login', 'Admin\LoginController@login')->name('admin.login');
 });
-Route::group(['prefix' => 'admin','middleware'=>['auth:admin','role:admin']], function(){
+Route::group(['prefix' => 'admin','middleware'=>['auth:admin','role:admin,worker']], function(){
 	Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
 	Route::get('home', 'Admin\AdminPagesController@index')->name('admin.home');
 });
