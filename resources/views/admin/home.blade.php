@@ -17,7 +17,15 @@
                     You are logged in!
                 </div>
             </div>
-        </div>
+            </br>
+            </br>
+            <form method="post" action="{{ route('admin.analyze') }}">
+                <div class="form-group">
+                    <label for="usr">URL</label>
+                    <input type="text" class="form-control" id="usr">
+                </div>
+            </form>                       
+        </div>        
     </div>
 </div>
 @endsection

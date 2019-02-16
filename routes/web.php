@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin'], function(){
 Route::group(['prefix' => 'admin','middleware'=>['auth:admin','role:admin,worker']], function(){
 	Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
 	Route::get('home', 'Admin\AdminPagesController@index')->name('admin.home');
+	Route::get('analyze', 'Gen\AnalyzePagesController@index')->name('admin.analyze');
 });
 
 
