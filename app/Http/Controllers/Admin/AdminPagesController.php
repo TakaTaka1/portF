@@ -12,7 +12,6 @@ class AdminPagesController extends Controller
     //
     public function index()
     {
-    	Admin::callIgo();
     	return view('admin.home');
     }
 }
