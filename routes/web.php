@@ -20,11 +20,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth:admin','role:admin,worker
 	Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
 	Route::get('home', 'Admin\AdminPagesController@index')->name('admin.home');
 	Route::get('analyze', 'Gen\AnalyzePagesController@index')->name('admin.analyze');
+	Route::post('analyze', 'Gen\AnalyzePagesController@index')->name('admin.analyze');
 });
 
 
 // userview
-// Route::get('/', 'Auth\LoginController@showLoginForm');
-// Route::group(['prefix' => 'user','middleware'=>'role:user'], function(){
-// 	Route::post('/home', 'Auth\LoginController@authenticate')->name('user.login');
-// });
+Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::group(['prefix' => 'user','middleware'=>'role:user'], function(){
+	Route::post('/home', 'Auth\LoginController@authenticate')->name('user.login');
+});
