@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
-    //
+    // test comment
     protected $fillable = ['role_type','name','email','password'];
     
 	public function setAttribute($key, $value)
