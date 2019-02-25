@@ -3,6 +3,7 @@
 namespace App;
 
 use Igo;
+use Goutte\Client;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -23,6 +24,11 @@ class Admin extends Authenticatable
 	public static function callIgo ()
 	{
 		$igo = new Igo(app_path('/ipadic'),'UTF-8');
-    	//dd($igo->parse("前田"));
-	} 
+	}
+	public static function callCrawler ($request, $url)
+	{
+		$client = new Client();
+		$crawler = $client->request($request, $url);
+		dd($crawler);
+	}	
 }
